@@ -68,7 +68,9 @@ atzall <- rbind(atztest,atztrain)  ##### the 128-dimensional raw data for each m
 # atzall
 
 
-All_data <- cbind(suball,yall,Xall,abxall,abyall,abzall,gbxall,gbyall,gbzall,atxall,atyall,atzall)
+All_data <- cbind(suball,yall,Xall)
+datanames <- read.table("features.txt")
+names(All_data) <- c("subject","activity",datanames$V2)
 
 All_data <<- All_data #superassign to global environment
 

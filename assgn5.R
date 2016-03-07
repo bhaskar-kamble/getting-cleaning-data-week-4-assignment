@@ -1,4 +1,4 @@
-assgn5a <- function() {
+assgn5 <- function() {
 
 
 # part 5 of assignment

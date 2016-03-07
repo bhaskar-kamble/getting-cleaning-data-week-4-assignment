@@ -1,4 +1,4 @@
-run_analysis <- function{
+run_analysis <- function() {
 
 source("assgn1.R")
 assgn1()
