@@ -1,4 +1,4 @@
-The working directory is "UCI HAR Dataset". This in turn contains the folders "test" and "train", each of which contains the folder "Inertial Signals" containing the 128-feature raw data for accelaration and angular velocity for the test and training sets, respectively
+The working directory contains the folders "test" and "train", each of which contains the folder "Inertial Signals" containing the 128-feature raw data for accelaration and angular velocity for the test and training sets, respectively
 
 ## R version 3.2.3, Ubuntu 14.04 LTS
 
