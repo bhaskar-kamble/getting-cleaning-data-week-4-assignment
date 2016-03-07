@@ -1,4 +1,4 @@
-assgn5 <- function() {
+assgn5a <- function() {
 
 
 # part 5 of assignment
@@ -10,45 +10,25 @@ assgn4()
 
 
 #splitting by activity:
-Xy <<- cbind(yall_name,Xall_name)
-for (ii in 2:562) {
-
-    Xy_splitmean <- lapply(split(Xy[,ii],Xy[,1]),mean)
-    Xy_splitmean_df <- data.frame(Xy_splitmean)
-    names(Xy_splitmean_df) <- names(Xy_splitmean)
-    Xyname <- data.frame(feature=names(Xy)[ii])
-    Xy_splitmean_ii <- cbind(Xyname,Xy_splitmean)
-    if (ii==2) {
-        Xy_splitmean_tot <- Xy_splitmean_ii
-    }
-    if (ii>2) {
-        Xy_splitmean_tot <- rbind(Xy_splitmean_tot,Xy_splitmean_ii)
-    }
-}
-Xy_splitmean_activity <<- Xy_splitmean_tot 
-#this variable is the required variable
-write.csv(Xy_splitmean_activity,file="Xy_splitmean_activity.csv")
+Xy <- cbind(yall_name,Xall_name)
+Xy <- Xy[,!duplicated(colnames(Xy))]#getting rid of duplicated column names
+library(dplyr)
+Xy_splitmean_activity <<- data.frame(Xy %>% group_by(activity) %>% summarise_each(funs(mean)))
 
 
 #splitting by subject:
-Xy <<- cbind(suball,Xall_name)
-for (ii in 2:562) {
+suball_name <- suball
+names(suball_name) <- "subject"
+Xsub <- cbind(suball_name,Xall_name)
+Xsub <- Xsub[,!duplicated(colnames(Xsub))]#getting rid of duplicated column names
+Xsub_splitmean_subject <<- data.frame(Xsub %>% group_by(subject) %>% summarise_each(funs(mean)))
 
-    Xy_splitmean <- lapply(split(Xy[,ii],Xy[,1]),mean)
-    Xy_splitmean_df <- data.frame(Xy_splitmean)
-    names(Xy_splitmean_df) <- names(Xy_splitmean)
-    Xyname <- data.frame(feature=names(Xy)[ii])
-    Xy_splitmean_ii <- cbind(Xyname,Xy_splitmean)
-    if (ii==2) {
-        Xy_splitmean_tot <- Xy_splitmean_ii
-    }
-    if (ii>2) {
-        Xy_splitmean_tot <- rbind(Xy_splitmean_tot,Xy_splitmean_ii)
-    }
-}
-Xy_splitmean_subject <<- Xy_splitmean_tot 
-#this variable is the required variable
-write.csv(Xy_splitmean_subject,file="Xy_splitmean_subject.csv")
+names(Xy_splitmean_activity)[1] <- "label"
+names(Xsub_splitmean_subject)[1] <- "label"
+Xysub_splitmean <<- rbind(Xy_splitmean_activity,Xsub_splitmean_subject)
 
+write.table(Xysub_splitmean,file="Xysub_splitmean.txt",row.name=FALSE)
+
+Xysub_splitmean
 
 }

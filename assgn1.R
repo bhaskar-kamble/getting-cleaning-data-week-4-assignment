@@ -67,34 +67,9 @@ atzall <- rbind(atztest,atztrain)  ##### the 128-dimensional raw data for each m
 # atyall
 # atzall
 
-# invoking them to the global environment:
-suball <<- suball
-yall <<- yall
-Xall <<- Xall
-abxall <<- abxall
-abyall <<- abyall
-abzall <<- abzall
-gbxall <<- gbxall
-gbyall <<- gbyall
-gbzall <<- gbzall
-atxall <<- atxall
-atyall <<- atyall
-atzall <<- atzall
 
-#---saving the relevant files--
-write.csv(suball,file="suball.csv")
-write.csv(yall,file="yall.csv")
-write.csv(Xall,file="Xall.csv")
-write.csv(abxall,file="abxall.csv")
-write.csv(abyall,file="abyall.csv")
-write.csv(abzall,file="abzall.csv")
-write.csv(gbxall,file="gbxall.csv")
-write.csv(gbyall,file="gbyall.csv")
-write.csv(gbzall,file="gbzall.csv")
-write.csv(atxall,file="atxall.csv")
-write.csv(atyall,file="atyall.csv")
-write.csv(atzall,file="atzall.csv")
+All_data <- cbind(suball,yall,Xall,abxall,abyall,abzall,gbxall,gbyall,gbzall,atxall,atyall,atzall)
 
-
+All_data <<- All_data #superassign to global environment
 
 }

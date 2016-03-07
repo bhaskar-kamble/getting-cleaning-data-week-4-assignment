@@ -4,6 +4,10 @@ The working directory contains the folders "test" and "train", each of which con
 
 ## R functions written for solving the assignment
 
+run_analysis.R - this is the main function. It calls the following functions:
+
+##
+
 assgn1.R - for solving part 1 of the assignment
 assgn2.R - for solving part 2 of the assignment
 assgn3.R - for solving part 3 of the assignment
@@ -14,6 +18,4 @@ assgn5.R - for solving part 5 of the assignment
 
 assgn1nosave.R - this is just an additional function invoked by assgn2.R,assgn3.R, and assgn4.R. 
 
-## Notes
 
-assgn1.R to assgn5.R can be run independently of each other. assgn2.R,assgn3.R, and assgn4.R invoke the extra function assgn1nosave.R while assgn5.R invokes assgn3.R and assgn4.R for running.
