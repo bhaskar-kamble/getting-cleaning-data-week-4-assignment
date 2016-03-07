@@ -1,5 +1,6 @@
 ## Data generated in part 1
-## "all" indicates that the train and test sets have been combined into a single data set
+"all" indicates that the train and test sets have been combined into a single data set
+##
 suball.csv - the data for subjects
 ##
 yall.csv   - the data for activities (WALKING, LAYING etc.)
